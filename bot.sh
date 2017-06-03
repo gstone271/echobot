@@ -9,6 +9,8 @@ interval=$(( $nanos * 50 / 100 ))
 declare -i prevdate
 prevdate=0
 
+#TODO place this fuction between tail -f and openssl
+#for this bot it's not needed
 function send {
     while read -r line; do
       newdate=`date +%s%N`

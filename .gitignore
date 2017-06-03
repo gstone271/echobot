@@ -1,3 +1,4 @@
 config.txt
 interesting.txt
 *.swp
+.nfs*
