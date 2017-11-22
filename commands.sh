@@ -53,7 +53,9 @@ runCmd() {
     waiting) say `count` ;;
     clear) say "Clearing `count`"; pkill -u griffins sleepecho.sh ;;
     restart) screen -r echobot -X kill ;;
-    *) say "$nick: Unrecognized command $cmd" ;;
+    source) say "https://github.com/gstone271/echobot" ;;
+   # *) say "$nick: Unrecognized command $cmd" ;;
+    *) say "$msg" ;;
   esac
 }
 
