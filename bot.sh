@@ -33,6 +33,9 @@ tail -f ${BOT_NICK}.io | openssl s_client -connect irc.cat.pdx.edu:6697 | while 
         send "NICK $BOT_NICK" 
         send "USER 0 0 0 :$BOT_NICK"
         send "JOIN #robots $KEY"
+        send "JOIN #meow $KEY"
+        send "JOIN #zombies $KEY"
+        send "JOIN #dragons $KEY"
         started="yes"
         read -r irc
     fi
