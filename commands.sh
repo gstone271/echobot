@@ -32,7 +32,7 @@ priv=1
 if [ "$chan" = "$BOT_NICK" ] ; then chan="$nick";priv=0 ; fi
 
 run() {
-  output=`<<<$1 sed "$NICKS_SED"`
+  output=`<<<$1 sed -r "$NICKS_SED"`
   time=$(( ( $RANDOM % $sleep_add + $sleep_min ) * $sleep_scale ))
   debug "will echo in $time s: $output"
   if grep -qiP "\001ACTION" <<<"$1"; then

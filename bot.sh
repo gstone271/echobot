@@ -57,7 +57,8 @@ tail -f ${BOT_NICK}.io | openssl s_client -connect irc.cat.pdx.edu:6697 | while 
     elif <<<"$irc" cut -d ":" -f 2 | grep -q "366" ; then
 #End of nicks list
       echo "Got nicks $allNicks"
-      NICKS_SED=$(for nick in $allNicks; do echo "s/$nick/$(<<<$nick tr 'aeiostl' '43105+|')/gI"; done)
+      #make sure to use `sed -r "$NICKS_SED"` for proper backslash parsing
+      NICKS_SED=$(for nick in $allNicks; do echo "s/$(<<<$nick sed 's/[^a-zA-Z0-9_-]/\\&/g')/$(<<<$nick tr 'aeiostl/\\&' '43105+|||8')/gI"; done)
       #echo "Nicks sed: `<<<"$NICKS_SED" tr '\n' ';'`"
     
     fi
